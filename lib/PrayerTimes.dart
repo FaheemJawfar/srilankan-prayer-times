@@ -45,20 +45,32 @@ class _PrayerTimesState extends State<PrayerTimes> {
 
   // Fetch content from the json file
   Future<void> readJson() async {
-    final String response = await rootBundle.loadString('assets/prayer_times_sample.json');
+    final String response = await rootBundle.loadString('assets/prayer_times.json');
     final data = await json.decode(response);
     setState(() {
       //_prayerTimes = data["prayer_times"];
       _prayerTimes = data["$monthNow"];
 
+
       FajrTime = _prayerTimes[indexDayNow]["Fajr"];
+
       SunriseTime = _prayerTimes[indexDayNow]["Sunrise"];
       DhuhrTime = _prayerTimes[indexDayNow]["Dhuhr"];
       AsrTime = _prayerTimes[indexDayNow]["Asr"];
       MaghribTime = _prayerTimes[indexDayNow]["Maghrib"];
       IshaTime = _prayerTimes[indexDayNow]["Isha"];
+
     });
   }
+
+
+
+
+    //set to AM/PM
+
+
+
+
 
   TextStyle PrayerTimeFont = TextStyle(
     fontWeight: FontWeight.w400,
@@ -71,7 +83,6 @@ class _PrayerTimesState extends State<PrayerTimes> {
 
   @override
   Widget build(BuildContext context) {
-    readJson();
     initializeDateFormatting('ta');
 
 
@@ -153,7 +164,7 @@ class _PrayerTimesState extends State<PrayerTimes> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      DateFormat("h:mma").format( DateTime.parse('$FajrTime')),
+                      '$FajrTime',
                       style: PrayerTimeFont,
                     ),
                     SizedBox(
@@ -201,6 +212,12 @@ class _PrayerTimesState extends State<PrayerTimes> {
         ),
       ),
     ));
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    this.readJson();
   }
 
 }
