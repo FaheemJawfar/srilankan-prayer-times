@@ -24,19 +24,24 @@ class _ReadQuranState extends State<ReadQuran> {
 
     return Scaffold(
         body: Padding(
-          padding: EdgeInsets.all(25),
+          padding: EdgeInsets.all(10),
           child: Column(
             children: [
               _quranDb.isNotEmpty
                   ? Expanded(child: ListView.builder(itemCount: _quranDb.length,
                   itemBuilder: (context, index) {
-                    
+
                 return Card(
-                  margin: EdgeInsets.all(10),
+                  margin: EdgeInsets.fromLTRB(0, 2, 0, 2),
                   child: ListTile(
 
-                    title: Text('${_quranDb[index]["tamilname"]}'),
-                    subtitle: Text('${_quranDb[index]["-name"]}'),
+                    title: Text('${_quranDb[index]["tamilname"]}',style: TextStyle(
+                      fontFamily: 'MeeraInimai'
+                    ),),
+                    subtitle: Text('${_quranDb[index]["-name"]}',style: TextStyle(
+                      fontSize: 20,
+                    ),
+                      textDirection: TextDirection.rtl,),
                     onTap: (){
                       print("Success");
                     },

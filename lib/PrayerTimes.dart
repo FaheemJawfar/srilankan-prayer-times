@@ -76,6 +76,7 @@ class _PrayerTimesState extends State<PrayerTimes> {
     fontWeight: FontWeight.w400,
     fontSize: 25,
     color: Colors.black,
+    fontFamily: 'AnekTamil',
   );
 
 
@@ -88,7 +89,12 @@ class _PrayerTimesState extends State<PrayerTimes> {
 
     return Scaffold(
         body: Container(
-      color: Colors.blue[200],
+          decoration: BoxDecoration(
+            image: DecorationImage( image: AssetImage("assets/bg.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+      
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -102,8 +108,9 @@ class _PrayerTimesState extends State<PrayerTimes> {
 
                  Text(' $tamilDate',
                     style: TextStyle(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
+                      fontFamily: 'AnekTamil',
+                      fontSize: 25.0,
+                      fontWeight: FontWeight.normal,
                     )),
 
               ],
@@ -207,7 +214,7 @@ class _PrayerTimesState extends State<PrayerTimes> {
 
 
               ],
-            ))
+            )),
           ],
         ),
       ),
