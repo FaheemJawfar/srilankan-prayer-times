@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:srilankan_prayer_times/SuraPage.dart';
+import 'package:srilankan_prayer_times/Test.dart';
 
 
 
@@ -43,7 +45,8 @@ class _ReadQuranState extends State<ReadQuran> {
                     ),
                       textDirection: TextDirection.rtl,),
                     onTap: (){
-                      print("Success");
+                     // Navigator.of(context).push(MaterialPageRoute(builder: (context) => SuraPage(selectedSura : index)));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => SuraPage(SuraNumber: index)));
                     },
                   ),
                 );
