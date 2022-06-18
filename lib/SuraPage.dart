@@ -6,8 +6,10 @@ import 'package:flutter/services.dart' show rootBundle;
 
 class SuraPage extends StatefulWidget {
   final int SuraNumber;
+  final String SuraName;
 
-  const SuraPage({Key? key, required this.SuraNumber}) : super(key: key);
+
+  const SuraPage({Key? key, required this.SuraNumber, required this.SuraName}) : super(key: key);
 
   @override
   State<SuraPage> createState() => _SuraPageState();
@@ -22,7 +24,10 @@ class _SuraPageState extends State<SuraPage> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Read Quran'),
+          centerTitle: true,
+          title: Text(widget.SuraName,style: TextStyle(
+            fontSize: 15,
+          ),),
         ),
         body: Padding(
           padding: EdgeInsets.all(10),
@@ -37,12 +42,12 @@ class _SuraPageState extends State<SuraPage> {
                             return Card(
                               margin: EdgeInsets.fromLTRB(0, 2, 0, 2),
                               child: ListTile(
-                                title: Text('${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}\n',style: TextStyle(
-                                  fontSize: 15,
+                                title: Text('${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
+                                  fontSize: 18,
                                 ),
                                   textDirection: TextDirection.rtl,),
 
-                                subtitle: Text('${index+1} .${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
+                                subtitle: Text('${index+1}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
                                     fontFamily: 'MeeraInimai',
                                   color: Colors.black,
                                 ),),

@@ -46,7 +46,7 @@ class _ReadQuranState extends State<ReadQuran> {
                       textDirection: TextDirection.rtl,),
                     onTap: (){
                      // Navigator.of(context).push(MaterialPageRoute(builder: (context) => SuraPage(selectedSura : index)));
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => SuraPage(SuraNumber: index)));
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => SuraPage(SuraNumber: index,SuraName: '${_quranDb[index]["tamilname"]}')));
                     },
                   ),
                 );
