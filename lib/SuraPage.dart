@@ -26,7 +26,7 @@ class _SuraPageState extends State<SuraPage> {
         appBar: AppBar(
           backgroundColor: Colors.green[400],
           centerTitle: true,
-          title: Text(widget.SuraName,style: TextStyle(
+          title: Text(widget.SuraName,style: const TextStyle(
             fontSize: 15,
           ),),
         ),
@@ -37,24 +37,44 @@ class _SuraPageState extends State<SuraPage> {
               _quranDb.isNotEmpty && _QuranArabic.isNotEmpty
                   ? Expanded(
                       child: ListView.builder(
-                          itemCount: int.parse(
-                              _quranDb[widget.SuraNumber]["versecount"]),
+                          itemCount: widget.SuraNumber==0 || widget.SuraNumber==8? int.parse(
+                              _quranDb[widget.SuraNumber]["versecount"]):
+                          int.parse(
+                              _quranDb[widget.SuraNumber]["versecount"])+1,
                           itemBuilder: (context, index) {
                             return Card(
-                              margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
+                              margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
                               child: ListTile(
-                                title: Text('${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
-                                  fontSize: 20,
+                                title: Text(
+                                  '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}',style: const TextStyle(
+                                  fontSize: 24,
                                   fontFamily: 'Al_Qalam',
                                   fontWeight: FontWeight.normal,
                                 ),
                                   textDirection: TextDirection.rtl,),
 
-                                subtitle: Text('${index+1}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
-                                    fontFamily: 'MeeraInimai',
-                                  fontSize: 16,
-                                  color: Colors.black,
-                                ),),
+
+                               //  subtitle:  Text('${
+                               // index+1 }. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
+                               //      fontFamily: 'MeeraInimai',
+                               //    fontSize: 16,
+                               //    color: Colors.black,
+                               //  ),),
+                                subtitle: Text((() {
+                                  if(widget.SuraNumber==0 || widget.SuraNumber==8){
+                                    return '${index+1 }. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}';
+                                  }
+
+                                  return index==0?'${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}':
+                                  '${index }. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}';
+
+                                })(),
+                                    style: const TextStyle(
+                                      fontFamily: 'MeeraInimai',
+                                      fontSize: 17,
+                                      color: Colors.black,
+                                   ),
+                                ),
 
                                 onTap: () {
                                   //print(_QuranArabic[0]["-name"]);

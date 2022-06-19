@@ -14,9 +14,6 @@ class PrayerTimes extends StatefulWidget {
 }
 
 DateTime now = DateTime.now();
-//String formattedDate = DateFormat('yyyy-MM-dd').format(now);
-
-
 
 var format = DateFormat.yMMMMEEEEd('ta');
 var tamilDate = format.format(DateTime.now());

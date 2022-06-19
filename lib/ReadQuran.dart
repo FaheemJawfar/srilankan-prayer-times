@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:srilankan_prayer_times/SuraPage.dart';
-import 'package:srilankan_prayer_times/Test.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
 
@@ -60,7 +60,17 @@ class _ReadQuranState extends State<ReadQuran> {
 
 
               ),
-              ) : Container(),
+              ) : Container(
+                  child: Expanded(
+                    child: Center(
+                        child: SpinKitFadingCube(
+                          color: Colors.green[400],
+                          size: 50.0,
+                        ),
+                    ),
+                  )
+
+              ),
             ],
           ),
         )
