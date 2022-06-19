@@ -39,7 +39,6 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-
         body: pages[currentPage],
         bottomNavigationBar: NavigationBar(
           destinations: [

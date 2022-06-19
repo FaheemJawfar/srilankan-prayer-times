@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
+import 'package:srilankan_prayer_times/GoToVerse.dart';
+import 'package:srilankan_prayer_times/Test.dart';
 
 class SuraPage extends StatefulWidget {
   final int SuraNumber;
@@ -60,12 +62,7 @@ class _SuraPageState extends State<SuraPage> {
                                   textDirection: TextDirection.rtl,
                                 ),
 
-                                //  subtitle:  Text('${
-                                // index+1 }. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
-                                //      fontFamily: 'MeeraInimai',
-                                //    fontSize: 16,
-                                //    color: Colors.black,
-                                //  ),),
+
                                 subtitle: Text(
                                   (() {
                                     if (widget.SuraNumber == 0 ||
@@ -85,7 +82,7 @@ class _SuraPageState extends State<SuraPage> {
                                 ),
 
                                 onTap: () {
-                                  //print(_QuranArabic[0]["-name"]);
+
                                 },
                               ),
                             );

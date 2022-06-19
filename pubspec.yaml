@@ -37,6 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   intl: ^0.17.0
   flutter_spinkit: ^5.1.0
+  scrollable_positioned_list: ^0.3.2
+
 
 dev_dependencies:
   flutter_test:
@@ -82,7 +84,7 @@ flutter:
       fonts:
       - asset: assets/fonts/AnekTamil-Regular.ttf
 
-    - family: AnekTamil
+    - family: MeeraInimai
       fonts:
       - asset: assets/fonts/MeeraInimai-Regular.ttf
 
