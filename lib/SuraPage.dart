@@ -61,8 +61,6 @@ class _SuraPageState extends State<SuraPage> {
                                   ),
                                   textDirection: TextDirection.rtl,
                                 ),
-
-
                                 subtitle: Text(
                                   (() {
                                     if (widget.SuraNumber == 0 ||
@@ -80,10 +78,7 @@ class _SuraPageState extends State<SuraPage> {
                                     color: Colors.black,
                                   ),
                                 ),
-
-                                onTap: () {
-
-                                },
+                                onTap: () {},
                               ),
                             );
                           }),

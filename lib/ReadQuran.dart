@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
@@ -36,9 +34,7 @@ class _ReadQuranState extends State<ReadQuran> {
             PopupMenuButton<String>(
               onSelected: handleClick,
               itemBuilder: (BuildContext context) {
-                return {'வசனத்திற்கு செல்க',
-                  'About Us'
-                }.map((String choice) {
+                return {'வசனத்திற்கு செல்க', 'About Us'}.map((String choice) {
                   return PopupMenuItem<String>(
                     value: choice,
                     child: Text(choice),
@@ -151,9 +147,7 @@ class _ReadQuranState extends State<ReadQuran> {
                 onPressed: () => Navigator.of(context).push(MaterialPageRoute(
                     builder: (context) => GoToVerse(
                         SuraNumber: InputSura, VerseNumber: InputVerse))),
-
                 child: const Text('OK'),
-
               ),
             ],
           ),
@@ -162,14 +156,12 @@ class _ReadQuranState extends State<ReadQuran> {
         break;
 
       case 'About Us':
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => AboutUs()));
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => AboutUs()));
 
         break;
     }
   }
-
-
 
   @override
   void initState() {
