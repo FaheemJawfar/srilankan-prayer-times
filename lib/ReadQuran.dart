@@ -25,6 +25,11 @@ class _ReadQuranState extends State<ReadQuran> {
 
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green[400],
+        centerTitle: true,
+        title: Text('அத்தியாயங்கள்'),
+      ),
         body: Padding(
           padding: EdgeInsets.all(10),
           child: Column(

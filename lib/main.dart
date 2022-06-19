@@ -39,11 +39,7 @@ class _RootPageState extends State<RootPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green[400],
-          centerTitle: true,
-          title: Text('Sri Lankan Prayer times'),
-        ),
+
         body: pages[currentPage],
         bottomNavigationBar: NavigationBar(
           destinations: [

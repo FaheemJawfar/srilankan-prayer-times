@@ -88,137 +88,144 @@ class _PrayerTimesState extends State<PrayerTimes> {
 
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green[400],
+        centerTitle: true,
+        title: Text('Sri Lankan Prayer times'),
+      ),
+
         body: Container(
+          height: double.infinity,
+
           decoration: BoxDecoration(
             image: DecorationImage( image: AssetImage("assets/bg.png"),
               fit: BoxFit.cover,
             ),
           ),
-      
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30,
+          child: SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 30,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+
+                       Text(' $tamilDate',
+                          style: TextStyle(
+                            fontFamily: 'AnekTamil',
+                            fontSize: 25.0,
+                            fontWeight: FontWeight.normal,
+                          )),
+
+                    ],
+                  ),
+                  SizedBox(height: 50),
+                  Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+
+                        children: [
+                          Text(
+                            'ஃபஜ்ர் -',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'சூரிய உதயம் -',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'லுஹர் -',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'அஸர் -',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'மஃரிப் -',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            'இஷா -',
+                            style: PrayerTimeFont,
+                          ),
+
+                        ],
+                      ),
+
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Text(
+                            '$FajrTime',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            '$SunriseTime',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            '$DhuhrTime',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            '$AsrTime',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            '$MaghribTime',
+                            style: PrayerTimeFont,
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Text(
+                            '$IshaTime',
+                            style: PrayerTimeFont,
+                          ),
+                        ],
+                      ),
+
+
+                    ],
+                  )),
+                ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-
-                 Text(' $tamilDate',
-                    style: TextStyle(
-                      fontFamily: 'AnekTamil',
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.normal,
-                    )),
-
-              ],
-            ),
-            SizedBox(height: 50),
-            Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                 crossAxisAlignment: CrossAxisAlignment.start,
-
-                  children: [
-                    Text(
-                      'ஃபஜ்ர் -',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'சூரிய உதயம் -',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'லுஹர் -',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'அஸர் -',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      'மஃரிப் -',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      'இஷா -',
-                      style: PrayerTimeFont,
-                    ),
-
-                  ],
-                ),
-
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      '$FajrTime',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      '$SunriseTime',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      '$DhuhrTime',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      '$AsrTime',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      '$MaghribTime',
-                      style: PrayerTimeFont,
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      '$IshaTime',
-                      style: PrayerTimeFont,
-                    ),
-                  ],
-                ),
-
-
-              ],
-            )),
-          ],
-        ),
-      ),
-    ));
+          ),
+        ));
   }
 
   @override

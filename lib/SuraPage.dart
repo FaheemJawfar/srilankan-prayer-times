@@ -24,13 +24,14 @@ class _SuraPageState extends State<SuraPage> {
 
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green[400],
           centerTitle: true,
           title: Text(widget.SuraName,style: TextStyle(
             fontSize: 15,
           ),),
         ),
         body: Padding(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(5),
           child: Column(
             children: [
               _quranDb.isNotEmpty && _QuranArabic.isNotEmpty
@@ -40,30 +41,23 @@ class _SuraPageState extends State<SuraPage> {
                               _quranDb[widget.SuraNumber]["versecount"]),
                           itemBuilder: (context, index) {
                             return Card(
-                              margin: EdgeInsets.fromLTRB(0, 2, 0, 2),
+                              margin: EdgeInsets.fromLTRB(0, 5, 0, 5),
                               child: ListTile(
                                 title: Text('${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 20,
+                                  fontFamily: 'Al_Qalam',
+                                  fontWeight: FontWeight.normal,
                                 ),
                                   textDirection: TextDirection.rtl,),
 
                                 subtitle: Text('${index+1}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}',style: TextStyle(
                                     fontFamily: 'MeeraInimai',
+                                  fontSize: 16,
                                   color: Colors.black,
                                 ),),
-                                // title: Column(
-                                //   children: [
-                                //     Text('Arabic',textDirection: TextDirection.rtl,),
-                                //     Text(
-                                //       '${_quranDb[widget.SuraNumber]["aya"][i++]["-text"]}',
-                                //       style:
-                                //           TextStyle(fontFamily: 'MeeraInimai'),
-                                //     ),
-                                //   ],
-                                // ),
 
                                 onTap: () {
-                                  print(_QuranArabic[0]["-name"]);
+                                  //print(_QuranArabic[0]["-name"]);
                                 },
                               ),
                             );
