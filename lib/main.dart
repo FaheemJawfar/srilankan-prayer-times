@@ -38,6 +38,7 @@ class _RootPageState extends State<RootPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         body: pages[currentPage],
         bottomNavigationBar: NavigationBar(

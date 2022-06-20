@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:srilankan_prayer_times/GoToVerse.dart';
-import 'package:srilankan_prayer_times/Test.dart';
 
 class SuraPage extends StatefulWidget {
   final int SuraNumber;
@@ -17,6 +16,7 @@ class SuraPage extends StatefulWidget {
   State<SuraPage> createState() => _SuraPageState();
 }
 
+String copyableText = '';
 List _quranDb = [];
 List _QuranArabic = [];
 
@@ -74,11 +74,42 @@ class _SuraPageState extends State<SuraPage> {
                                   })(),
                                   style: const TextStyle(
                                     fontFamily: 'MeeraInimai',
-                                    fontSize: 17,
+                                    fontSize: 18,
                                     color: Colors.black,
                                   ),
                                 ),
                                 onTap: () {},
+                                onLongPress: () {
+                                  Clipboard.setData(ClipboardData(
+                                    text:
+                                        '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}\n\n${(() {
+                                      if (widget.SuraNumber == 0 ||
+                                          widget.SuraNumber == 8) {
+                                        return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:${index + 1})';
+                                      }
+
+                                      return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:$index)';
+                                    })()}',
+                                  ));
+
+                                  final snackBar = SnackBar(
+                                    content: Text(
+                                      'வசனம் பிரதியெடுக்கப்பட்டது\n\n' +
+                                          '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}\n\n${(() {
+                                            if (widget.SuraNumber == 0 ||
+                                                widget.SuraNumber == 8) {
+                                              return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:${index + 1})';
+                                            }
+
+                                            return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:$index)';
+                                          })()}',
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    backgroundColor: Colors.red[900],
+                                  );
+
+                                  Scaffold.of(context).showSnackBar(snackBar);
+                                },
                               ),
                             );
                           }),

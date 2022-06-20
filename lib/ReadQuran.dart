@@ -85,8 +85,8 @@ class _ReadQuranState extends State<ReadQuran> {
                   : Container(
                       child: Expanded(
                       child: Center(
-                        child: SpinKitFadingCube(
-                          color: Colors.green[400],
+                        child: SpinKitRing(
+                          color: Colors.green,
                           size: 50.0,
                         ),
                       ),
@@ -119,7 +119,7 @@ class _ReadQuranState extends State<ReadQuran> {
               children: [
                 TextField(
                   onChanged: (value) {
-                    InputSura = int.parse(value);
+                    InputSura = int.parse(value) - 1;
                   },
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],

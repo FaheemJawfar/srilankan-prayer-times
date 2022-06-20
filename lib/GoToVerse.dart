@@ -25,7 +25,6 @@ List _QuranArabic = [];
 class _GoToVerseState extends State<GoToVerse> {
   final ItemScrollController _itemScrollController = ItemScrollController();
 
-
   //final _desiredItemIndex = 50;
 
   @override
@@ -34,11 +33,11 @@ class _GoToVerseState extends State<GoToVerse> {
 
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.red[500],
+          backgroundColor: Colors.green[900],
           centerTitle: true,
-          title:  Text(
+          title: Text(
             //widget.SuraName,
-            "அத்தியாயம் : ${widget.SuraNumber.toString()}",
+            "அத்தியாயம் : ${(widget.SuraNumber + 1).toString()}",
             style: TextStyle(
               fontSize: 15,
             ),
@@ -73,8 +72,6 @@ class _GoToVerseState extends State<GoToVerse> {
                                 ),
                                 textDirection: TextDirection.rtl,
                               ),
-
-
                               subtitle: Text(
                                 (() {
                                   if (widget.SuraNumber == 0 ||
@@ -92,8 +89,42 @@ class _GoToVerseState extends State<GoToVerse> {
                                   color: Colors.black,
                                 ),
                               ),
+                              onTap: () {
+                                null;
+                              },
+                              onLongPress: () {
+                                Clipboard.setData(ClipboardData(
+                                  text:
+                                      '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}\n${(() {
+                                    if (widget.SuraNumber == 0 ||
+                                        widget.SuraNumber == 8) {
+                                      return '${index + 1}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}';
+                                    }
 
-                              onTap: () {},
+                                    return index == 0
+                                        ? '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}'
+                                        : '${index}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}';
+                                  })()}',
+                                ));
+
+                                final snackBar = SnackBar(
+                                  content: Text(
+                                    'வசனம் பிரதியெடுக்கப்பட்டது\n\n' +
+                                        '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}\n\n${(() {
+                                          if (widget.SuraNumber == 0 ||
+                                              widget.SuraNumber == 8) {
+                                            return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:${index + 1})';
+                                          }
+
+                                          return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:$index)';
+                                        })()}',
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  backgroundColor: Colors.red[900],
+                                );
+
+                                Scaffold.of(context).showSnackBar(snackBar);
+                              },
                             ),
                           );
                         },

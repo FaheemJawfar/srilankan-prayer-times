@@ -8,6 +8,7 @@ class AboutUs extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('About Us.'),
+        backgroundColor: Colors.green[400],
         centerTitle: true,
       ),
       body: Container(
@@ -24,6 +25,7 @@ class AboutUs extends StatelessWidget {
                 CircleAvatar(
                   backgroundImage: AssetImage('assets/quran_icon.png'),
                   radius: 40,
+                  backgroundColor: Colors.green[600],
                 ),
                 Text(
                   'திருக்குர்ஆன்',
@@ -66,8 +68,8 @@ class AboutUs extends StatelessWidget {
                   height: 100,
                 ),
                 Text(
-                  '"உங்களில் சிறந்தவர் திருக்குர்ஆனைத் தானும் கற்று அதை பிறருக்கு கற்றுக் கொடுத்தவராவார்." \n\n- முஹம்மது நபி(ஸல்)\n(ஆதாரம்: புகாரி - 5028)',
-                  style: TextStyle(fontFamily: 'AnekTamil'),
+                  '"உங்களில் சிறந்தவர் திருக்குர்ஆனைத் \nதானும் கற்று அதை பிறருக்கு கற்றுக் கொடுத்தவராவார்." \n\n- முஹம்மது நபி(ஸல்)\n(ஆதாரம்: புகாரி - 5028)',
+                  style: TextStyle(fontFamily: 'AnekTamil', fontSize: 15),
                   textAlign: TextAlign.center,
                 ),
               ],
