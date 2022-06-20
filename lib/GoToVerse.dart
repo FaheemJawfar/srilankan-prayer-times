@@ -4,8 +4,6 @@ import 'package:flutter/services.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:srilankan_prayer_times/GoToVerse.dart';
-import 'package:srilankan_prayer_times/Test.dart';
 
 class GoToVerse extends StatefulWidget {
   final int SuraNumber;

@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
-import 'package:srilankan_prayer_times/GoToVerse.dart';
 
 class SuraPage extends StatefulWidget {
   final int SuraNumber;
