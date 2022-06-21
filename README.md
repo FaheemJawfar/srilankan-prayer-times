@@ -14,8 +14,8 @@ It has a beautiful UI and plenty of options that are easy to use.
 
 ## Screenshots
 
-<img src="https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183353.png?raw=true" width="200" height="400">
+<img src="https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183353.png?raw=true" width="300" height="600">
 
-<img src="https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183435.png?raw=true" width="200" height="400">
+<img src="https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183435.png?raw=true" width="300" height="600">
 
-<img src="https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183457.png?raw=true" width="200" height="400">
+<img src="https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183457.png?raw=true" width="300" height="600">
