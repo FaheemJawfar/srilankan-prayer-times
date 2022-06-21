@@ -13,12 +13,13 @@ On this page, users can read the Quran and its meaning in the Tamil Language.
 It has a beautiful UI and plenty of options that are easy to use.
 
 ## Screenshots
-![img1](https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183353.png?raw=true)
+
+<img src="https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183353.png?raw=true" width="100" height="200">
 
 
 
-![img2](https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183435.png?raw=true)
+![SS-02](https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183435.png?raw=true)
 
 
 
-![img3](https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183457.png?raw=true)
+![SS-03](https://github.com/FaheemJawfar/srilankan-prayer-times/blob/master/screenshots/Screenshot_20220620_183457.png?raw=true)
