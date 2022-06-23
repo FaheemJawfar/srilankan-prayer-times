@@ -18,6 +18,8 @@ class SuraPage extends StatefulWidget {
 String copyableText = '';
 List _quranDb = [];
 List _QuranArabic = [];
+int VerseNumber = 0;
+String CopiedVerse = '';
 
 class _SuraPageState extends State<SuraPage> {
   @override
@@ -39,80 +41,59 @@ class _SuraPageState extends State<SuraPage> {
             children: [
               _quranDb.isNotEmpty && _QuranArabic.isNotEmpty
                   ? Expanded(
-                      child: ListView.builder(
-                          itemCount:
-                              widget.SuraNumber == 0 || widget.SuraNumber == 8
-                                  ? int.parse(
-                                      _quranDb[widget.SuraNumber]["versecount"])
-                                  : int.parse(_quranDb[widget.SuraNumber]
-                                          ["versecount"]) +
-                                      1,
-                          itemBuilder: (context, index) {
-                            return Card(
-                              margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
-                              child: ListTile(
-                                title: Text(
-                                  '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}',
-                                  style: const TextStyle(
-                                    fontSize: 24,
-                                    fontFamily: 'Al_Qalam',
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                  textDirection: TextDirection.rtl,
-                                ),
-                                subtitle: Text(
-                                  (() {
-                                    if (widget.SuraNumber == 0 ||
-                                        widget.SuraNumber == 8) {
-                                      return '${index + 1}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}';
-                                    }
+                child: ListView.builder(
+                    itemCount:
+                    widget.SuraNumber == 0 || widget.SuraNumber == 8
+                        ? int.parse(
+                        _quranDb[widget.SuraNumber]["versecount"])
+                        : int.parse(_quranDb[widget.SuraNumber]
+                    ["versecount"]) +
+                        1,
+                    itemBuilder: (context, index) {
+                      return Card(
+                        margin: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+                        child: ListTile(
+                          title: Text(
+                            setArabicVerse(index),
+                            style: const TextStyle(
+                              fontSize: 25,
+                              fontFamily: 'AlQalam',
+                              fontWeight: FontWeight.normal,
+                            ),
+                            textDirection: TextDirection.rtl,
+                          ),
+                          subtitle: Text(
+                            setTamilVerse(index),
+                            style: const TextStyle(
+                              fontFamily: 'MeeraInimai',
+                              fontSize: 19,
+                              color: Colors.black,
+                            ),
+                          ),
+                          onTap: () {},
+                          onLongPress: () {
+                            Clipboard.setData(ClipboardData(
+                              text:
+                              '${setArabicVerse(index)}\n\n${setTamilVerse(index)}\n\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:${VerseNumber})',
+                            ));
 
-                                    return index == 0
-                                        ? '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}'
-                                        : '${index}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}';
-                                  })(),
-                                  style: const TextStyle(
-                                    fontFamily: 'MeeraInimai',
-                                    fontSize: 18,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                onTap: () {},
-                                onLongPress: () {
-                                  Clipboard.setData(ClipboardData(
-                                    text:
-                                        '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}\n\n${(() {
-                                      if (widget.SuraNumber == 0 ||
-                                          widget.SuraNumber == 8) {
-                                        return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:${index + 1})';
-                                      }
+                            CopiedVerse =
+                            '${setArabicVerse(index)}\n\n${setTamilVerse(index)}\n\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:${VerseNumber})';
 
-                                      return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:$index)';
-                                    })()}',
-                                  ));
-
-                                  final snackBar = SnackBar(
-                                    content: Text(
-                                      'வசனம் பிரதியெடுக்கப்பட்டது\n\n' +
-                                          '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}\n\n${(() {
-                                            if (widget.SuraNumber == 0 ||
-                                                widget.SuraNumber == 8) {
-                                              return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:${index + 1})';
-                                            }
-
-                                            return '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}\n\n(திருக்குர்ஆன் ${widget.SuraNumber + 1}:$index)';
-                                          })()}',
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    backgroundColor: Colors.red[900],
-                                  );
-
-                                  Scaffold.of(context).showSnackBar(snackBar);
-                                },
+                            final snackBar = SnackBar(
+                              content: Text(
+                                'வசனம் பிரதியெடுக்கப்பட்டது\n\n$CopiedVerse',
+                                textAlign: TextAlign.center,
                               ),
+                              backgroundColor: Colors.red[900],
                             );
-                          }),
-                    )
+
+                            Scaffold.of(context).showSnackBar(snackBar);
+                          },
+                        ),
+                      );
+                    }),
+              )
                   : Container(),
             ],
           ),
@@ -121,10 +102,10 @@ class _SuraPageState extends State<SuraPage> {
 
   Future<void> readTamilSura() async {
     final String response =
-        await rootBundle.loadString('assets/quran_tamil.json');
+    await rootBundle.loadString('assets/quran_tamil.json');
     final data = await json.decode(response);
     setState(
-      () {
+          () {
         _quranDb = data["sura"];
       },
     );
@@ -132,13 +113,46 @@ class _SuraPageState extends State<SuraPage> {
 
   Future<void> readArabicSura() async {
     final String response =
-        await rootBundle.loadString('assets/quran_arabic.json');
+    await rootBundle.loadString('assets/quran_arabic.json');
     final data = await json.decode(response);
     setState(
-      () {
+          () {
         _QuranArabic = data["sura"];
       },
     );
+  }
+
+  String replaceArabicNumber(String input) {
+    const english = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    const arabic = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+
+    for (int i = 0; i < english.length; i++) {
+      input = input.replaceAll(english[i], arabic[i]);
+    }
+
+    return input;
+  }
+
+  String setArabicVerse(index) {
+    if (widget.SuraNumber == 0 || widget.SuraNumber == 8) {
+      VerseNumber = index + 1;
+      return '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}';
+    }
+    VerseNumber = index;
+    return index == 0
+        ? '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}'
+        : '${_QuranArabic[widget.SuraNumber]["aya"][index]["-text"]}';
+  }
+
+  String setTamilVerse(index) {
+    if (widget.SuraNumber == 0 || widget.SuraNumber == 8) {
+      VerseNumber = index + 1;
+      return '${index + 1}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}';
+    }
+    VerseNumber = index;
+    return index == 0
+        ? '${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}'
+        : '${index}. ${_quranDb[widget.SuraNumber]["aya"][index]["-text"]}';
   }
 
   @override
